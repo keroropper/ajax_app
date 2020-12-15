@@ -16,8 +16,8 @@ class PostsController < ApplicationController
     else
       post.update(checked: true) #既読でなければ「既読にするためtrueへ変更」
     end
-
     item = Post.find(params[:id]) #更新したレコードをitem = Post.find(params[:id])で取得し直し
     render json: { post: item } #render json:{ post: item }でJSON形式（データ）としてchecked.jsに返却
   end
+
 end
