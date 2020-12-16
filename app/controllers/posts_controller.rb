@@ -5,8 +5,8 @@ class PostsController < ApplicationController
 
 
   def create
-    Post.create(content: params[:content])
-    redirect_to action: :index
+    post = Post.create(content: params[:content], checked: false) #未読の場合、contentを保存して、その値をpostに代入する
+    render json:{ post: post }  #↑のpostをjsonに代入
   end
 
   def checked #checkedアクションは、「既読」の操作を行ったときに実行されるアクション
